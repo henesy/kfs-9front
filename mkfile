@@ -44,3 +44,7 @@ ksync:
 	cp ksync.rc $BIN/ksync
 
 $O.format: /$objtype/lib/libdisk.a
+
+uninstall: 
+	rm $BIN/kfs $BIN/kfscmd $BIN/ksync
+	rm /sys/man/4/kfs /sys/man/8/kfscmd
