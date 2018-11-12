@@ -9,6 +9,10 @@ OFILES=
 
 BIN=/$objtype/bin/disk
 
+MAN = /sys/man/8/
+
+MANFILES = kfscmd.man
+
 UPDATE=\
 	mkfile\
 	${TARG:%=%.c}\
@@ -26,6 +30,10 @@ nuke:V:		nuke-kfs
 
 installall:V:	installall-kfs
 
+installman:
+	cp kfscmd.man $MAN/kfscmd
+	cp kfs/kfs.man /sys/man/4/kfs
+
 %-kfs:V:
 	for(i in $DIRS) @{
 		cd $i
@@ -33,6 +41,6 @@ installall:V:	installall-kfs
 	}
 
 ksync:
-	touch $BIN/ksync
+	cp ksync.rc $BIN/ksync
 
 $O.format: /$objtype/lib/libdisk.a

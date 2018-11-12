@@ -62,6 +62,8 @@ f_flush(Chan *cp, Oldfcall *in, Oldfcall *ou)
 	rlock(&cp->reflock);
 }
 
+Nvrsafe nvr; // TODO AUTH -- here since auth is removed
+
 void
 f_session(Chan *cp, Oldfcall *in, Oldfcall *ou)
 {
@@ -72,11 +74,12 @@ f_session(Chan *cp, Oldfcall *in, Oldfcall *ou)
 	if(wstatallow || cp == cons.srvchan){
 		memset(ou->chal, 0, sizeof(ou->chal));
 		memset(ou->authid, 0, sizeof(ou->authid));
-	}else{
+	}/*else{ TODO AUTH
 		mkchallenge(cp);
 		memmove(ou->chal, cp->chal, sizeof(ou->chal));
 		memmove(ou->authid, nvr.authid, sizeof(ou->authid));
-	}
+	}*/
+
 	sprint(ou->authdom, "%s.%s", service, nvr.authdom);
 	fileinit(cp);
 }
@@ -110,10 +113,12 @@ f_attach(Chan *cp, Oldfcall *in, Oldfcall *ou)
 	}
 	u = -1;
 	if(cp != cons.chan){
+		/* TODO AUTH
 		if(authorize(cp, in, ou) == 0 || strcmp(in->uname, "adm") == 0){
 			ou->err = Eauth;
 			goto out;
 		}
+		*/
 		u = strtouid(in->uname);
 		if(u < 0){
 			ou->err = Ebadu;

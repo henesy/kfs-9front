@@ -110,4 +110,4 @@ int	authorize(Chan*, Oldfcall*, Oldfcall*);
 
 void	(*call9p1[MAXSYSCALL])(Chan*, Oldfcall*, Oldfcall*);
 
-extern Nvrsafe nvr;
+extern Nvrsafe nvr; // TODO AUTH
