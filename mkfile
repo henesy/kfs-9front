@@ -1,17 +1,9 @@
 </$objtype/mkfile
 
-TARG=exsort\
-	format\
-	kfscmd\
-	mbr\
-	mkext\
-	mkfs\
-	partfs\
+TARG=kfscmd\
 
 DIRS=\
-	9660\
 	kfs\
-	prep\
 
 OFILES=
 
@@ -20,9 +12,7 @@ BIN=/$objtype/bin/disk
 UPDATE=\
 	mkfile\
 	${TARG:%=%.c}\
-	/sys/man/8/prep\
-	/sys/man/8/mkfs\
-	${TARG:%=/386/bin/disk/%}\
+	${TARG:%=/$objtype/bin/disk/%}\
 
 </sys/src/cmd/mkmany
 
