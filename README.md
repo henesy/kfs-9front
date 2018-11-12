@@ -20,6 +20,10 @@ For the manuals:
 
 	mk installman
 
+## Uninstall
+
+	mk uninstall
+
 ## Systems that use kfs(4)
 
 - Inferno OS through 4e
