@@ -1,10 +1,12 @@
 # kfs -- disk file system
 
+This is a port of kfs(4) and its relevant utilities to 9front from 9legacy.
+
 Kfs is the venerable Plan 9 file server. Kfs is superceded by cwfs on 9front.
 
 The port exists primarily to facilitate data extraction from systems which use or used kfs at some point within history.
 
-This port has had auth removed to leave it as a future project.
+This port has had auth removed and is left as an exercise to the reader.
 
 ## Build
 
